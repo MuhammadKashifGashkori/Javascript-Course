@@ -1,4 +1,5 @@
-// Lesson 01: Variables 
+// Lesson 02: Variables 
+console.log("Lesson 02 Started")
 console.log("Kashif");
 let name="Kashif Gashkori";
 let age=35;
@@ -16,7 +17,8 @@ console.log(typeof name);
 console.log(typeof age);
 console.log(typeof student);
 
-// Destructuring in Javascript
+// Lesson 03 - Destructuring in Javascript
+console.log("Lesson 03 Started")
 /// Objects 
 const students={
     s_name:"Ali",
@@ -35,3 +37,38 @@ console.log(s_height);
  console.log(first);
  console.log(second);
  console.log(third);
+
+ // Lesson 04 — Spread Operator
+ console.log("Lesson 04 Started")
+
+ const fruits=["Apple","Banana","Mango"];
+ const updatefruits=[...fruits,"Orange"];
+ console.log(updatefruits);
+
+ // merge two arrays:
+ const frontend = ["HTML", "CSS", "JavaScript"];
+const backend = ["Node.js", "Express"];
+
+const skills = [...frontend, ...backend];
+
+console.log(skills);
+// Task 01
+const studenttask = {
+    name: "Ahmed",
+    age: 21,
+    course: "Computer Science"
+};
+const updatestudent={
+    ...studenttask,
+    age:22,
+    city: "Multan"
+}
+// Task 02 
+const frontend = ["HTML", "CSS", "JavaScript"];
+const backend = ["Node.js", "Express", "MongoDB"];
+const combineSkills=[...frontend,...backend];
+// Task 03
+const task={
+    ...updatestudent,
+    semester:5
+}
