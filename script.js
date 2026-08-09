@@ -188,3 +188,95 @@ const resultfinal=users.map((user,index)=>
     `User ${index+1}: ${user.name} - ${user.email}`
 );
 console.log(resultfinal);
+
+//Lesson 06 — Filter()
+console.log("Lesson 06 Start");
+
+// simple filter on Array
+const numbers6 = [10, 15, 20, 25, 30];
+const result6 = numbers6.filter(number => number > 20);
+console.log(result6);
+
+//
+const students6 = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 45 },
+    { name: "Sara", marks: 90 },
+    { name: "Usman", marks: 35 }
+];
+const updatestudent6=students6.filter(student6=>student6.marks>50);
+console.log(updatestudent6);
+
+//Task 01
+const numbers6t1 = [5, 12, 18, 25, 30, 7, 40];
+const updatenumber6t1=numbers6t1.filter(num=>num>20);
+console.log(updatenumber6t1);
+//Task 02
+const even=numbers6t1.filter(num=>num%2===0);
+console.log(even);
+// Task 03
+const studentst3 = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 45 },
+    { name: "Sara", marks: 90 },
+    { name: "Usman", marks: 35 },
+    { name: "Ayesha", marks: 72 }
+];
+const resultt3=studentst3.filter(student=>student.marks>=50);
+console.log(resultt3);
+
+// Task 04 
+const productst4 = [
+    { name: "Laptop", price: 120000, category: "Electronics" },
+    { name: "Mouse", price: 2500, category: "Accessories" },
+    { name: "Phone", price: 80000, category: "Electronics" },
+    { name: "Keyboard", price: 5000, category: "Accessories" }
+];
+const catproducts=productst4.filter(product=>product.category === "Electronics");
+console.log(catproducts);
+// Task 05 
+const pricproducts=productst4.filter(product=>product.price>10000);
+console.log(pricproducts);
+
+// Task 06 
+const studentst6 = [
+    { name: "Ali", marks: 80, age: 20 },
+    { name: "Ahmed", marks: 45, age: 22 },
+    { name: "Sara", marks: 90, age: 19 },
+    { name: "Usman", marks: 65, age: 24 },
+    { name: "Ayesha", marks: 72, age: 21 }
+];
+
+const updatestudents6=studentst6.filter(student=>student.marks>=70 && student.age<=21);
+console.log(updatestudents6);
+
+// Task 08
+const studentst8 = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 45 },
+    { name: "Sara", marks: 90 },
+    { name: "Usman", marks: 35 },
+    { name: "Ayesha", marks: 72 }
+];
+const updatestudentst8=studentst8.filter(student=>student.marks>=50);
+const namestudentst8=updatestudentst8.map(student=>
+    student.name
+);
+console.log(namestudentst8);
+// method chaining 
+const namet8=studentst8
+    .filter(student=>student.marks>=50)
+    .map(student=>student.name)
+console.log(namet8);
+
+// Product
+const upproducts=productst4
+    .filter(product=>product.price>10000)
+    .map(product=>product.name)
+console.log(upproducts);
+
+// Task 10
+const upproductst10=productst4
+    .filter(product=>product.price>50000 && product.category === "Electronics")
+    .map(product=>product.name)
+console.log(upproductst10);
