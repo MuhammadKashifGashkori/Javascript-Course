@@ -384,3 +384,71 @@ const billcart=cartavail
         return total+(product.price*product.quantity);
     },0);
 console.log(billcart);
+
+// Lesson 08 - Lesson 08 — Advanced Array Methods
+console.log(" Lesson 08 Started");
+
+const userfind = [
+    { id: 1, name: "Ali", email: "ali@gmail.com" },
+    { id: 2, name: "Ahmed", email: "ahmed@gmail.com" },
+    { id: 3, name: "Sara", email: "sara@gmail.com" },
+    { id: 4, name: "Usman", email: "usman@gmail.com" }
+];
+//Task 01
+const resultfind=userfind.find(user=>user.id === 3);
+console.log(resultfind);
+ // Task 02
+
+ const emailfind=userfind.find(user=>user.email === "sara@gmail.com");
+console.log(emailfind);
+
+// Sorting
+const usproducts = [
+    { name: "Laptop", price: 120000 },
+    { name: "Mouse", price: 2500 },
+    { name: "Keyboard", price: 5000 },
+    { name: "Monitor", price: 30000 }
+];
+const sortproducts=usproducts.sort((a,b)=>b.price-a.price);
+console.log(sortproducts);
+ 
+//  Innclude
+const skillsin = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js"
+];
+console.log(skillsin.includes("React"));
+
+//Task 11
+
+const forstudents = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 65 },
+    { name: "Sara", marks: 90 }
+];
+forstudents.forEach(student=>
+    console.log(student.name," scored ",student.marks," marks")
+)
+
+forstudents.forEach((student,index)=>
+    console.log("Student ",index+1,student.name," scored ",student.marks," marks")
+)
+// Task 11
+const pstudents = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 45 },
+    { name: "Sara", marks: 90 },
+    { name: "Usman", marks: 35 },
+    { name: "Ayesha", marks: 72 }
+];
+pstudents.forEach(student=>{
+    if (student.marks>=50){
+        console.log(`${student.name} - ${student.marks} - Pass`);
+    }
+    else{
+        console.log(`${student.name} - ${student.marks} - Fail`)
+    }
+});
