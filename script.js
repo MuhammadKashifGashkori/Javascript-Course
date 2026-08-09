@@ -280,3 +280,107 @@ const upproductst10=productst4
     .filter(product=>product.price>50000 && product.category === "Electronics")
     .map(product=>product.name)
 console.log(upproductst10);
+
+//Lesson 07 — Reduce()
+console.log("Lesson 07 Start");
+
+const numbers7 = [10, 20, 30, 40];
+
+const total = numbers7.reduce((sum,number)=>{
+    return sum+number;
+},0);
+
+console.log(total);
+
+// Task 01 
+const numberst7 = [10, 20, 30, 40, 50];
+const totalt7=numberst7.reduce((sum,number)=>{
+    return sum+number;
+},0);
+
+console.log(totalt7);
+
+// Task 02 
+const productst2 = [
+    { name: "Laptop", price: 120000 },
+    { name: "Mouse", price: 2500 },
+    { name: "Keyboard", price: 5000 },
+    { name: "Monitor", price: 30000 }
+];
+const pricet2=productst2.reduce((total,product)=>{
+    return total+product.price;
+},0);
+console.log(pricet2);
+
+// Task 03 
+const cart = [
+    { name: "Laptop", price: 120000, quantity: 1 },
+    { name: "Mouse", price: 2500, quantity: 2 },
+    { name: "Keyboard", price: 5000, quantity: 1 }
+];
+const bill=cart.reduce((total,product)=>{
+    return total+(product.price*product.quantity);
+},0);
+console.log(bill); 
+
+// Task 04 
+const studentst4 = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 65 },
+    { name: "Sara", marks: 90 },
+    { name: "Usman", marks: 75 }
+];
+const totalt4=studentst4.reduce((total,student)=>{
+    return total+student.marks;
+},0)
+console.log(totalt4);
+// Task 05
+const average=totalt4/studentst4.length;
+console.log(average);
+// Task 06
+const maximum=studentst4.reduce((highest,student)=>{
+    if (student.marks > highest.marks){
+
+        return student;
+    }
+    return highest;
+},studentst4[0])
+console.log(maximum);
+// Task 07 
+
+const minimum=studentst4.reduce((lowest,student)=>{
+    if (student.marks < lowest.marks){
+
+        return student;
+    }
+    return lowest;
+},studentst4[0])
+console.log(minimum);
+
+//Task 08 
+const studentstask08 = [
+    { name: "Ali", marks: 80 },
+    { name: "Ahmed", marks: 45 },
+    { name: "Sara", marks: 90 },
+    { name: "Usman", marks: 35 },
+    { name: "Ayesha", marks: 72 }
+];
+const resultsum=studentstask08
+    .filter(student=>student.marks>=50)
+    .reduce((total,student)=>{
+        return total+student.marks;
+    },0);
+console.log(resultsum);
+// Task 09
+const cartavail = [
+    { name: "Laptop", price: 120000, quantity: 1, available: true },
+    { name: "Mouse", price: 2500, quantity: 2, available: false },
+    { name: "Keyboard", price: 5000, quantity: 1, available: true },
+    { name: "Monitor", price: 30000, quantity: 2, available: true }
+];
+const billcart=cartavail
+    .filter(product=>product.available === true)
+    .reduce((total,product)=>{
+        return total+(product.price*product.quantity);
+    },0);
+console.log(billcart);
