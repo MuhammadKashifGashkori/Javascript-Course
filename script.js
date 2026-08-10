@@ -540,8 +540,8 @@ function showStudent({name:studentName,marks:studentMarks,course="Not Assigned"}
 };
 showStudent(fstudent);
 
-// Lesson 11 — Spread vs Rest: Real-World Practice
-console.log("Lesson 11- Started ");
+// Lesson 10 — Spread vs Rest: Real-World Practice
+console.log("Lesson 10- Started ");
 
 /// Spread 
 
@@ -567,3 +567,11 @@ const {spname,...sotherinfo}=spproduct;
 console.log(spname);
 console.log(sotherinfo);
 
+// Lesson 11 — import and export
+console.log("Lesson 11- Started ");
+
+import {add} from "./math.js";
+console.log(add(10,15));
+
+import subtract from "./math.js";
+console.log(subtract(30,15));
