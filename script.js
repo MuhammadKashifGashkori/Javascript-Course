@@ -540,7 +540,7 @@ function showStudent({name:studentName,marks:studentMarks,course="Not Assigned"}
 };
 showStudent(fstudent);
 
-// Lesson 10 — Spread vs Rest: Real-World Practice
+// Lesson 10 — Spread vs Rest: Real-World Practice and import Export
 console.log("Lesson 10- Started ");
 
 /// Spread 
@@ -575,3 +575,231 @@ console.log(add(10,15));
 
 import subtract from "./math.js";
 console.log(subtract(30,15));
+
+// Lesson 11 — Promise
+console.log("Lesson 11- Started ");
+
+const checkAge= new Promise((resolve,reject)=>{
+    const age=16
+    if (age>18){
+        resolve("Elgible");
+    }
+    else{
+        reject("Not Eligible")
+    }
+});
+checkAge
+    .then(result=>{
+        console.log(result);
+    })
+    .catch(error=>{
+        console.log(error);
+    });
+
+    /*Time out
+     const getData=new Promise((resolve,reject)=>{
+        setTimeout(() => {
+            resolve("Data Updated Succesfully");
+        }, 3000);
+     })
+     getData
+     .then(result=>{
+        console.log(result);
+     })
+    .catch(error=>{
+        console.log(error);
+    });*/
+
+    const myPromise=new Promise((resolve)=>{
+        resolve(5);
+    });
+    myPromise
+    .then(result=>{
+        console.log(result);
+        return result*2;
+    })
+     .then(result=>{
+        console.log(result);
+        return result+10;
+    })
+    .then(result=>{
+        console.log(result);
+        return result*5;
+    })
+    .then(result=>{
+        console.log(result);
+    });
+
+    const getUser = new Promise((resolve,reject) => {
+
+    setTimeout(() => {
+        resolve("User data loaded");
+    }, 3000);
+
+});
+async function showUser(){
+    const result=await getUser;
+    console.log(result);
+};
+
+
+const loginUser = new Promise((resolve, reject) => {
+
+    const loginSuccess = false;
+
+    if (loginSuccess) {
+        resolve("Login successful");
+    } else {
+        reject("Invalid username or password Function");
+    }
+
+});
+async function login() {
+    try{
+        const result=await loginUser;
+        console.log(result);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+login();
+
+// Fetch data from Server/API using function
+/*async function getUsers(){
+    try{
+        const response=await fetch(
+            "https://jsonplaceholder.typicode.com/users"
+        );
+        const data=await response.json();
+        // All data show in array object
+        console.log(data)
+        // get only names 
+        const names=data.map(user=>user.name);
+        console.log(names);
+        // Get user array from Data
+        const resultuser=data.map(user=>({
+            id:user.id,
+            name:user.name,
+            email:user.email
+        }));
+        console.log(resultuser);
+        // Get user id>5
+        const filteruser=data
+        .filter(user=>user.id>5)
+        .map(user=>({
+            id:user.id,
+            name:user.name,
+            email:user.email
+        }));
+        console.log(filteruser);
+        // REduce Data Adding all ids
+        const totalids=data.reduce((total,user)=>{
+            return total+user.id;
+        },0);
+        console.log(totalids);
+        const searchname=data.filter(user=>
+            user.name.startsWith("Leanne")
+        );
+        console.log(searchname);
+        // search anames where a included 
+        const namewitha=data.filter(user=>
+            user.name.toLowerCase().includes('a')
+        )
+        .map(user=>user.name);
+        console.log(namewitha);
+        //search with all cases 
+        const search="le"
+        const allnamewith=data.filter(user=>
+            user.name.toLowerCase().includes(search.toLowerCase())
+        )
+        .map(user=>user.name);
+        console.log(allnamewith);
+
+        //seach user function
+        function searchUser(data,search){
+            return data
+            .filter(user=>
+                user.name.toLowerCase().includes(search.toLowerCase())
+            )
+            .map(user=>user.name)
+        }
+        console.log(searchUser(data,"lee"));
+        console.log(searchUser(data,"graham"));
+        console.log(searchUser(data,"a"));
+        
+    // Catch starts
+    }
+    catch{
+        console.log("error");
+    }
+}*
+// fetch function ends here
+
+// Post Request
+async function addUser(){
+    try{
+        const response=await fetch(
+            "https://jsonplaceholder.typicode.com/users",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({
+                    name:"Ahmad",
+                    email:"ahmad@gmail.com"
+                })
+            }
+        );
+        if(!response.ok){
+            throw new Error("Reqiest Failed")
+        }
+        const data=await response.json();
+        console.log(data);
+    }
+    catch(error){
+        console.log(error.message);
+    }
+}*/
+async function updateUser() {
+
+    try {
+
+        const response = await fetch(
+            "https://jsonplaceholder.typicode.com/users/1",
+            {
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: "Kashif",
+                    email: "kashif@gmail.com"
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed");
+        }
+
+        const data = await response.json();
+
+        console.log(data);
+
+    }
+    catch (error) {
+        console.log(error.message);
+    }
+
+}
+
+//updateUser();
+//getUsers();  
+//addUser();
+
+
+
+
