@@ -452,3 +452,92 @@ pstudents.forEach(student=>{
         console.log(`${student.name} - ${student.marks} - Fail`)
     }
 });
+pstudents.forEach(student=>{
+    console.log(`${student.name} - ${student.marks} - ${student.marks>=50?"Pass":"Fail"}`)
+});
+
+// Lesson 09 — Optional Chaining
+console.log(" Lesson 09 Started");
+
+const ocstudent = {
+    name: "Ahmed",
+    course: "Computer Science"
+};
+console.log(ocstudent.course?.marks);
+
+const cuser = {
+    name: "Ali",
+    address: {
+        city: "Multan"
+    }
+};
+console.log(cuser.address?.city);
+console.log(cuser.contact?.phone ?? "Unknown");
+
+console.log(ocstudent.city ?? "City not available");
+
+// Task o1
+const dproduct = {
+    id: 1,
+    name: "Laptop",
+    price: 120000,
+    category: "Electronics"
+};
+const{name:productName,price:productPrice}=dproduct;
+console.log(productName);
+console.log(productPrice);
+
+// Task 02
+const puser2 = {
+    name: "Ali",
+    email: "ali@gmail.com",
+    address: {
+        city: "Multan",
+        pcountry: "Pakistan"
+    }
+};
+const {
+    address: {city:userCity,pcountry:userCountry}
+}=puser2
+console.log(userCity);
+console.log(userCountry);
+const coursestt = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js"
+];
+const [course1,course2,course3]=coursestt
+console.log(course1);
+console.log(course2);
+console.log(course3);
+
+const [firstcourse,...remainingcourse]=coursestt
+console.log(firstcourse);
+console.log(remainingcourse);
+
+const userin = {
+    sname: "Ahmed",
+    email: "ahmed@gmail.com",
+    age: 22,
+    city: "Multan",
+    country: "Pakistan"
+};
+const {sname,email,...otherinfo}=userin;
+console.log(sname);
+console.log(email);
+console.log(otherinfo)
+// Function Restructering 
+const fstudent = {
+    name: "Ahmed",
+    marks: 85,
+};
+function showStudent({name:studentName,marks:studentMarks,course="Not Assigned"}){
+    console.log(studentName);
+    console.log(studentMarks);
+    console.log(course);
+};
+showStudent(fstudent);
+
+
