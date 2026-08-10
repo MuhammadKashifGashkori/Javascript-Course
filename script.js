@@ -540,4 +540,30 @@ function showStudent({name:studentName,marks:studentMarks,course="Not Assigned"}
 };
 showStudent(fstudent);
 
+// Lesson 11 — Spread vs Rest: Real-World Practice
+console.log("Lesson 11- Started ");
+
+/// Spread 
+
+const oldStudent = {
+    name: "Ali",
+    marks: 80
+};
+
+const updatedStudent = {
+    ...oldStudent,
+    marks: 90
+};
+
+console.log(updatedStudent);
+
+const spproduct = {
+    name: "Laptop",
+    price: 120000,
+    category: "Electronics",
+    brand: "Dell"
+};
+const {spname,...sotherinfo}=spproduct;
+console.log(spname);
+console.log(sotherinfo);
 
