@@ -760,7 +760,7 @@ async function addUser(){
     catch(error){
         console.log(error.message);
     }
-}*/
+}
 async function updateUser() {
 
     try {
@@ -794,12 +794,22 @@ async function updateUser() {
         console.log(error.message);
     }
 
-}
+}*/
 
 //updateUser();
 //getUsers();  
 //addUser();
 
+// Lesson - 12 OOP
+ class backAccount{
+     constructor(accountholder,balance){
+        this.accountholder=accountholder;
+        this.balance=balance;
 
-
-
+    }
+    checkBalance(){
+        return this.balance;
+    }
+ }
+ const account1=new backAccount("Kashif",5000);
+ console.log(account1.checkBalance());
